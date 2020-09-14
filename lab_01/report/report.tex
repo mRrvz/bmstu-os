@@ -1,0 +1,95 @@
+% !TeX document-id = {c68f4be8-c497-43e0-82df-e9ebfbea9577}
+% !TeX TXS-program:pdflatex = pdflatex -synctex=1 -interaction=nonstopmode --shell-escape %.tex
+% новая команда \RNumb для вывода римских цифр
+\documentclass[a4paper,12pt]{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm} 
+\usepackage{caption}
+\usepackage{misccorr}
+\usepackage[noadjust]{cite}
+\usepackage{cmap} 
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{verbatim}
+\usepackage{makeidx}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{bm}
+\usepackage{esint}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{multirow}
+\usepackage{graphicx}
+
+\lstset{basicstyle=\fontsize{10}{10}\selectfont,breaklines=true}
+
+\newcommand{\specchapter}[1]{\chapter*{#1}\addcontentsline{toc}{chapter}{#1}}
+\newcommand{\specsection}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
+\newcommand{\specsubsection}[1]{\subsection*{#1}\addcontentsline{toc}{subsection}{#1}}
+\newcommand{\RNumb}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+\newcommand{\jj}{\righthyphenmin=20 \justifying}
+
+
+% геометрия
+\geometry{pdftex, left = 2cm, right = 2cm, top = 2.5cm, bottom = 2.5cm}
+
+\setcounter{tocdepth}{4} % фикс переноса 
+\righthyphenmin = 2
+\tolerance = 2048
+
+\begin{document}
+\thispagestyle{empty}
+
+\noindent \begin{minipage}{0.15\textwidth}
+	\includegraphics[width=\linewidth]{b_logo}
+\end{minipage}
+\noindent\begin{minipage}{0.9\textwidth}\centering
+	\textbf{Министерство науки и высшего образования Российской Федерации}\\
+	\textbf{Федеральное государственное бюджетное образовательное учреждение высшего образования}\\
+	\textbf{«Московский государственный технический университет имени Н.Э.~Баумана}\\
+	\textbf{(национальный исследовательский университет)»}\\
+	\textbf{(МГТУ им. Н.Э.~Баумана)}
+\end{minipage}
+
+\noindent\rule{18cm}{3pt}
+\newline\newline
+\noindent ФАКУЛЬТЕТ $\underline{\text{«Информатика и системы управления»}}$ \newline\newline
+\noindent КАФЕДРА $\underline{\text{«Программное обеспечение ЭВМ и информационные технологии»}}$\newline\newline\newline\newline\newline\newline\newline
+
+
+\begin{center}
+	\noindent\begin{minipage}{1.3\textwidth}\centering
+	\Large\textbf{   ~~~ Лабораторная работа №1}\newline
+	\textbf{по дисциплине "Операционные системы"}\newline\newline\newline
+	\end{minipage}
+\end{center}
+
+\noindent\textbf{Тема} $\underline{\text{Дизассемблирование и изучение INT 8h}}$\newline\newline
+\noindent\textbf{Студент} $\underline{\text{Романов А.В.}}$\newline\newline
+\noindent\textbf{Группа} $\underline{\text{ИУ7-53Б}}$\newline\newline
+\noindent\textbf{Преподаватель} $\underline{\text{Рязанова Н.Ю.}}$\newline
+
+\begin{center}
+	\vfill
+	Москва~---~\the\year
+~г.
+\end{center}
+\clearpage
+
+\section{Полученный дизассемблированный код}
+\UseRawInputEncoding
+\lstinputlisting{../src/temp.asm}
+\noindent Построение и программная реализация алгоритмов численного интегрирования.
+
+\section{Схема алгоритма}
+
+\noindent Получение навыков построения алгоритма вычисления двукратного интеграла с использованием квадратурных формул Гаусса и Симпсона.
+
+\end{document}

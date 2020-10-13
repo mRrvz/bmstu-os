@@ -5,6 +5,8 @@
 *.o
 *.ko
 *.obj
+*.EXE
+*.OBJ
 *.elf
 
 materials_ryazanova/
@@ -52,3 +54,4 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+

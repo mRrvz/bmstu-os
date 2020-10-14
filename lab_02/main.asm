@@ -18,6 +18,7 @@ data segment use16
     gdt_code descr   <code_size-1,0,0,98h,0,0> ; сегмент команд
     gdt_stack descr  <255,0,0,92h,0,0> ; сегмент стека
     gdt_screen descr <4095,8000h,0Bh,92h,0,0> ; видеопамять
+    gdt_datacheck descr<0FFFFh,0,0,92h,11001111b,0>
     gdt_size=$-gdt_null
 
     pdescr  df  0
@@ -111,6 +112,10 @@ text segment 'code' use16
         ; Заносим в es селектор сегмента видеопамяти
         mov ax, 32
         mov es, ax
+
+        ; Заносим в GS селектор сегмента размера 4ГБ
+        mov ax, 40
+        mov gs, ax
 
         mov di, (row + 1) * 160 + col * 2
         mov bx, offset protectmode

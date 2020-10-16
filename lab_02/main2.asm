@@ -10,64 +10,61 @@ descr struc
 descr ends
 
 int_descr struc
-	offs_l 	dw 0
-	sel		dw 0
+	offs_l  dw 0
+	sel     dw 0
 	counter db 0
-	attr	db 0
-	offs_h 	dw 0
+	attr    db 0
+	offs_h  dw 0
 int_descr ends
 
 pm_seg segment para public 'code' use32
 	assume cs:pm_seg
 
 gdt label byte
-	gdt_null descr <>
-	gdt_flatDS  descr <0ffffh, 0, 0, 92h, 11001111b, 0>
-	gdt_16bitCS descr <rm_seg_size-1, 0, 0, 98h, 0, 0>
-	gdt_32bitCS descr <pm_seg_size-1, 0, 0, 98h, 11001111b, 0>
-	gdt_32bitDS descr <pm_seg_size-1, 0, 0, 92h, 11001111b, 0>
-	gdt_32bitSS descr <stack_size-1, 0, 0, 92h, 11001111b, 0>
-	gdt_size = $-gdt
+	gdt_null descr    <0, 0, 0, 0, 0, 0>
+	gdt_4gb  descr    <0FFFFh, 0, 0, 92h, 11001111b, 0>
+	gdt_code16 descr  <rm_seg_size - 1, 0, 0, 98h, 0, 0>
+	gdt_code32 descr  <pm_seg_size - 1, 0, 0, 98h, 11001111b, 0>
+	gdt_data32 descr  <pm_seg_size - 1, 0, 0, 92h, 11001111b, 0>
+	gdt_stack32 descr <stack_size - 1, 0, 0, 92h, 11001111b, 0>
+	gdt_size = $ - gdt
 	gdtr dw gdt_size-1
 	dd ?
 
-	sel_flatDS  equ 001000b
-	sel_16bitCS equ 010000b
-	sel_32bitCS equ 011000b
-	sel_32bitDS equ 100000b
-	sel_32bitSS equ 101000b
+	sel_4gb = 8
+	sel_code16 = 16
+	sel_code32 = 24
+	sel_data32 = 32
+	sel_stack32 = 40
 
 idt label byte
-	int_descr_1 int_descr 13 dup (<0, SEL_32bitCS, 0, 8Fh, 0>)
-	int13 int_descr <0, SEL_32bitCS, 8Fh, 0>
-	int_descr_2 int_descr 18 dup (<0, SEL_32bitCS, 8Fh, 0>)
-	irq0 int_descr <0, SEL_32bitCS,0, 8Eh, 0>
-	irq1 int_descr	<0, SEL_32bitCS,0, 8Eh, 0>
-	idt_size = $-idt
+	int_descr_1 int_descr 13 dup (<0, sel_code32, 0, 8Fh, 0>)
+	int13 int_descr <0, sel_code32, 8Fh, 0>
+	int_descr_2 int_descr 18 dup (<0, sel_code32, 8Fh, 0>)
+	irq0 int_descr <0, sel_code32,0, 8Eh, 0>
+	irq1 int_descr <0, sel_code32,0, 8Eh, 0>
+	idt_size = $ - idt
 
-	idtr dw idt_size-1
+	idtr dw idt_size - 1
 	dd ?
 
 	idtr_real dw 3ffh, 0, 0
 
-	v86_msg db "Процессор в режиме V86 - нельзя переключится в PM$"
-	win_msg db "Программа запущена под Windows перейти в кольцо 0$"
-
-	scan2ascii	db 0, 1bh, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 8
-				db 0, 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{', '}'
-				db 0, 0, 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ':', "'", 0, 0
+	ascii_table db  0, 1bh, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 8
+				db  0, 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{', '}'
+				db  0, 0, 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ':', "'", 0, 0
 				db 'a', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 0
-				db 0, 0, 0, 0 ,' '
+				db  0, 0, 0, 0 ,' '
 	time_08 dd 0
 	screen_addr dd 320
 	master db 0
 	slave db 0
 
 pm_entry:
-	mov ax, sel_flatDS
+	mov ax, sel_4gb
 	mov ds, ax
 	mov es, ax
-	mov ax, sel_32bitSS
+	mov ax, sel_stack32
 	mov ebx, stack_size
 	mov ss, ax
 	mov esp, ebx
@@ -93,37 +90,37 @@ irq0_handler:
 	push ebp
 	push ecx
 	push dx
-	mov eax,time_08
+	mov eax, time_08
 
-	mov ebp,0B8010h
-	mov ecx,8
+	mov ebp, 0B8010h
+	mov ecx, 8
 	prcyc:
-	mov dl,al
-	and dl,0Fh
-	cmp dl,10
-	jl number
-	add dl, 'A' - '0' - 10
-	number:
-	add dl,'0'
-	mov es:[ebp],dl
-	sub ebp,2
-	ror eax,4
+		mov dl,al
+		and dl,0Fh
+		cmp dl,10
+		jl number
+		add dl, 'A' - '0' - 10
+		number:
+		add dl,'0'
+		mov es:[ebp],dl
+		sub ebp,2
+		ror eax,4
 	loop prcyc
 
 	inc eax
-	mov time_08,eax
+	mov time_08, eax
 
 	pop dx
 	pop ecx
 	pop ebp
 
-	mov	al,20h
-	out	20h,al
+	mov al,20h
+	out 20h,al
 	pop eax
 
 	iretd
 
-; Прерывания от клавиатуры
+; Клавиатура
 irq1_handler:
 	push eax
 	push ebx
@@ -136,11 +133,11 @@ irq1_handler:
 	je esc_pressed
 	cmp al, 1
 	je esc_pressed
-	mov bx, sel_32bitDS
+	mov bx, sel_data32
 	mov ds, bx
-	mov ebx, offset scan2ascii
+	mov ebx, offset ascii_table
 	xlatb
-	mov bx, sel_flatDS
+	mov bx, sel_4gb
 	mov es, bx
 	mov ebx, screen_addr
 	cmp al, 8
@@ -181,34 +178,35 @@ esc_pressed:
 	pop ebx
 	pop eax
 	cli
-		db 0eah
-		dd offset rm_return
-		dw sel_16bitCS
+
+	db 0eah
+	dd offset rm_return
+	dw sel_code16
 
 print_memory proc
 	push ds
-	mov	ax, sel_flatds
-	mov	ds, ax
-	mov	ebx, 100001h
-	mov	dl,	10101010b
+	mov ax, sel_4gb
+	mov ds, ax
+	mov ebx, 100001h
+	mov dl, 10101010b
 
-	mov	ecx, 0ffeffffeh
+	mov ecx, 0FFEFFFFEh
 
 check:
-	mov	dh, ds:[ebx]
-	mov	ds:[ebx], dl
-	cmp	ds:[ebx], dl
-	jnz	end_of_memory
-	mov	ds:[ebx], dh
-	inc	ebx
-	loop	check
+	mov dh, ds:[ebx]
+	mov ds:[ebx], dl
+	cmp ds:[ebx], dl
+	jnz end_of_memory
+	mov ds:[ebx], dh
+	inc ebx
+	loop check
 
 end_of_memory:
-	pop	ds
-	xor	edx, edx
-	mov	eax, ebx
-	mov	ebx, 100000h
-	div	ebx
+	pop ds
+	xor edx, edx
+	mov eax, ebx
+	mov ebx, 100000h
+	div ebx
 
 	push ebp
 	mov ebp,20
@@ -216,24 +214,24 @@ end_of_memory:
 	push ecx
 	push dx
 
-	mov ecx,8
-	add ebp,0b8010h
+	mov ecx, 8
+	add ebp, 0B8010h
 	prcyc1:
-		mov dl,al
-		and dl,0fh
+		mov dl, al
+		and dl, 0fh
 
-		cmp dl,10
+		cmp dl, 10
 		jl number1
-		add dl,'A' - '0' - 10
+		add dl, 'A' - '0' - 10
 		number1:
 		add dl,'0'
 
-		mov es:[ebp],dl
-		ror eax,4
-		sub ebp,2
+		mov es:[ebp], dl
+		ror eax, 4
+		sub ebp, 2
 	loop prcyc1
 
-	sub ebp,0b8010h
+	sub ebp, 0B8010h
 	pop dx
 	pop ecx
 
@@ -255,24 +253,27 @@ start:
 	push pm_seg
 	pop ds
 
+	; Вычисление баз всех используемых дескрипторов
 	xor eax, eax
 	mov ax, rm_seg
 	shl eax, 4
-	mov word ptr gdt_16bitCS+2, ax ; Базой 16bitCS будет rm_seg
+	mov word ptr gdt_code16 + 2, ax ; Базой gdt_code будет rm_seg
 	shr eax, 16
-	mov byte ptr gdt_16bitCS+4, al
+	mov byte ptr gdt_code16 + 4, al
 	mov ax, pm_seg
 	shl eax, 4
 	push eax
 	push eax
-	mov word ptr gdt_32bitCS+2, ax ; Базой всех 32bit будет pm_seg
-	mov word ptr gdt_32bitSS+2, ax
-	mov word ptr gdt_32bitDS+2, ax
-	shr eax, 16
-	mov byte ptr gdt_32bitCS+4, al
-	mov byte ptr gdt_32bitSS+4, al
-	mov byte ptr gdt_32bitDS+4, al
 
+	mov word ptr gdt_code32 + 2, ax ; Базой всех _32 будет pm_seg
+	mov word ptr gdt_stack32 + 2, ax
+	mov word ptr gdt_data32 + 2, ax
+	shr eax, 16
+	mov byte ptr gdt_code32 + 4, al
+	mov byte ptr gdt_stack32 + 4, al
+	mov byte ptr gdt_data32 + 4, al
+
+	; Вычисление и загрузка линейного адреса GDT
 	pop eax
 	add eax, offset gdt
 	mov dword ptr gdtr+2, eax
@@ -280,12 +281,13 @@ start:
 
 	lgdt fword ptr gdtr
 
+	; Тоже самое для IDT
 	pop eax
 	add eax, offset idt
 	mov dword ptr idtr+2, eax
 	mov word ptr idtr, idt_size-1
 
-	; Перепрограммировать контроллер прерываний
+	; Заполнение дескрипторов
 	mov eax, offset irq0_handler
 	mov irq0.offs_l, ax
 	shr eax, 16
@@ -307,24 +309,30 @@ start:
 	shr eax, 16
 	mov int13.offs_h, ax
 
+	; Сохранение масок прерываний контроллеров
 	in al, 21h
 	mov master, al
 	in al, 0A1h
 	mov slave, al
 
+	; Перепрограммирование ведущего контроллера
 	mov al, 11h
 	out 20h, al
-	mov AL, 20h
+	mov al, 20h
 	out 21h, al
 	mov al, 4
 	out 21h, al
 	mov al, 1
 	out 21h, al
-	mov al, 0fch ; Игнорируем все прерывания, кроме первых двух
+
+	; Игнорируем все прерывания, кроме таймера и клавиатуры
+	mov al, 0FCh 
 	out 21h, al
 
-	mov al, 0ffh
-	out 0a1h, al
+	; Запретим все прерывания в ведомом контроллере.
+	mov dx, 0A1h
+	mov al, 0FFh
+	out dx, al
 
 	lidt fword ptr idtr
 
@@ -333,13 +341,14 @@ start:
 	or al, 2
 	out 92h, al
 
+	; Отключение прерываний
 	cli
 
 	in al, 70h
 	or al, 80h
 	out 70h, al
 
-	; Переход в PM
+	; Переход в защищенный режим
 	mov eax, cr0
 	or al, 1
 	mov cr0, eax
@@ -347,16 +356,16 @@ start:
 	db 66h
 	db 0eah
 	dd offset pm_entry
-	dw sel_32bitCS
+	dw sel_code32
 
 rm_return:
-	; Переход в RM
+	; Переход в реальный режим
 	mov eax, cr0
 	and al, 0feh
 	mov cr0, eax
 
-	db 0eah
-	dw $+4
+	db 0EAh
+	dw $ + 4
 	dw rm_seg
 
 	mov ax, pm_seg
@@ -379,19 +388,19 @@ rm_return:
 	lidt fword ptr idtr_real
 
 	in al, 70h
-	and al, 07fh
+	and al, 07Fh
 	out 70h, al
 
 	sti
-	mov ah, 4ch
+	mov ax, 4C00h
 	int 21h
 
 	rm_seg_size = $-start
 rm_seg ends
 
 stack_seg segment para stack 'stack'
-stack_start db 100h dup(?)
-stack_size = $-stack_start
+	stack_start db 100h dup(?)
+	stack_size = $-stack_start
 stack_seg ends
 
 end start

@@ -55,3 +55,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+
+*.synctex.gz
+*.aux

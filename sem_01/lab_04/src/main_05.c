@@ -16,7 +16,7 @@
 
 int mode = 0;
 
-void dummy(int sigint) { fprintf(stdout, "flexin\n"); }
+void dummy(int sigint) {  }
 
 void change_mode(int sigint) 
 {

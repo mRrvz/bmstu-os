@@ -211,7 +211,7 @@ int main()
 		pid_t childpid = wait(&status);
 		fprintf(stdout, "Child process (PID %d) finished. Status: %d\n", childpid, status);
 		
-        if (WIFEXITED(statval))
+		if (WIFEXITED(statval))
 		{
 			fprintf(stdout, "Child process #%d finished with code: %d\n", i + 1, WEXITSTATUS(statval));
 		}

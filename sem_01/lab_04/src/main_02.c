@@ -7,13 +7,13 @@
 #define FORK_FAILURE 1
 
 #define N 2
-#define SLP_INTV 2
+#define SLP_INTV 10
+
+int child[N];
+int pid;
 
 int main() 
 {
-    int child[N];
-    int pid;
-
     fprintf(stdout, "Parent process. PID: %d, GROUP: %d\n", getpid(), getpgrp());
 
     for (size_t i = 0; i < N; i++) 
@@ -38,20 +38,23 @@ int main()
 
     for (size_t i = 0; i < N; i++) 
     {
-        int status, statval;
+        int status, statval = 0;
 
         pid_t childpid = wait(&status);
         fprintf(stdout, "Child process (PID %d) finished. Status: %d\n", childpid, status);
 
         if (WIFEXITED(statval)) 
         {
-            fprintf(stdout, "Child process finished with code: %d\n", WEXITSTATUS(statval));
+            fprintf(stdout, "Child process #%d finished with code: %d\n", i + 1, WEXITSTATUS(statval));
         }
-        else 
+        else if (WIFSIGNALED(statval))
         {
-            fprintf(stdout, "Child process terminated abnormally\n");
+            fprintf(stdout, "Child process #%d finished from signal with code: %d\n", i + 1, WTERMSIG(statval));
         }
-
+        else if (WIFSTOPPED(statval))
+        {
+            fprintf(stdout, "Child process #%d finished stopped with code: %d\n", i + 1, WSTOPSIG(statval));
+        }
     }
 
     fprintf(stdout, "Parent process. Children ID: %d, %d.\nParent process is dead.\n", child[0], child[1]);

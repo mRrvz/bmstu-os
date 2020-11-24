@@ -61,11 +61,15 @@ int main()
 
         if (WIFEXITED(statval)) 
         {
-            fprintf(stdout, "Child process finished with code: %d\n", WEXITSTATUS(statval));
+            fprintf(stdout, "Child process #%d finished with code: %d\n", i + 1, WEXITSTATUS(statval));
         }
-        else 
+        else if (WIFSIGNALED(statval))
         {
-            fprintf(stdout, "Child process terminated abnormally\n");
+            fprintf(stdout, "Child process #%d finished from signal with code: %d\n", i + 1, WTERMSIG(statval));
+        }
+        else if (WIFSTOPPED(statval))
+        {
+            fprintf(stdout, "Child process #%d finished stopped with code: %d\n", i + 1, WSTOPSIG(statval));
         }
 
     }

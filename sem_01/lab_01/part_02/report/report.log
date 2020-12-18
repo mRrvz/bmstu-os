@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.4)  16 DEC 2020 01:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.4)  18 DEC 2020 16:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1295,19 +1295,12 @@ Overfull \hbox (13.26501pt too wide) in paragraph at lines 1--1
 |[]\T2A/cmr/bx/n/20.74 Функции об-ра-бот-чи-ка пре-ры-ва-ния от си-стем-
  []
 
-
-Overfull \hbox (2.81274pt too wide) in paragraph at lines 19--20
-\T2A/cmr/m/n/12 Про-буж-де-ние обо-зна-ча-ет ини-ци-а-ли-за-цию от-ло-жен-но-го
- вы-зо-ва про-це-ду-ры \T2A/cmr/bx/n/12 wakeup\T2A/cmr/m/n/12 ,
- []
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.40     \item Р
-                ёРЅРєСЂРµРјРµРЅС‚ СЃС‡С‘С‚С‡РёРєР° СЃРёСЃС‚РµРјРЅРѕРіРѕ РІСЂ...
-[1
+l.32 \end{itemize}
+                   [1
 
 
 
@@ -1328,38 +1321,42 @@ LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line
  (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ) [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 199--199
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 206--206
 []\T2A/cmr/bx/n/12 real-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--199
+Underfull \hbox (badness 10000) in paragraph at lines 206--206
 []\T2A/cmr/bx/n/12 above
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--199
+Underfull \hbox (badness 10000) in paragraph at lines 206--206
 []\T2A/cmr/bx/n/12 below
+ []
+
+
+Overfull \hbox (20.9132pt too wide) in paragraph at lines 237--238
+[]\T2A/cmr/m/n/12 повышение при-о-ри-те-та про-иг-ры-ва-ния муль-ти-ме-диа служ
+-бой пла-ни-ров-щи-ка \T2A/cmr/bx/n/12 MMCSS\T2A/cmr/m/n/12 . 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6]
-Overfull \hbox (20.9132pt too wide) in paragraph at lines 230--231
-[]\T2A/cmr/m/n/12 повышение при-о-ри-те-та про-иг-ры-ва-ния муль-ти-ме-диа служ
--бой пла-ни-ров-щи-ка \T2A/cmr/bx/n/12 MMCSS\T2A/cmr/m/n/12 . 
- []
-
 [7]
-Underfull \hbox (badness 3179) in paragraph at lines 278--279
+Underfull \hbox (badness 3179) in paragraph at lines 285--286
 []\T2A/cmr/m/n/12 Потоки про-фес-си-о-наль-но-го аудио (Pro
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--284
+Underfull \hbox (badness 10000) in paragraph at lines 291--291
 []\T2A/cmr/m/n/12 Exhausted (Ис-чер-
  []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 [8]) [9]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9.
@@ -1374,7 +1371,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 9.
 Here is how much of TeX's memory you used:
  35966 strings out of 481820
  836824 string characters out of 5937972
- 1215533 words of memory out of 5000000
+ 1216534 words of memory out of 5000000
  51119 multiletter control sequences out of 15000+600000
  544500 words of font info for 48 fonts, out of 8000000 for 9000
  475 hyphenation exceptions out of 8191
@@ -1389,7 +1386,7 @@ k> </home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.60
 0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on report.pdf (10 pages, 175162 bytes).
+Output written on report.pdf (10 pages, 175387 bytes).
 PDF statistics:
  455 PDF objects out of 1000 (max. 8388607)
  122 compressed objects within 2 object streams

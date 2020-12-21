@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.4)  22 DEC 2020 02:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.4)  22 DEC 2020 02:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -967,22 +967,22 @@ File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ))
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
 \c@lstlisting=\count326
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -1012,7 +1012,7 @@ ABD: EveryShipout initializing macros
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.17} into 
 your preamble.
- on input line 59.
+ on input line 60.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1051,60 +1051,60 @@ your preamble.
 <img/b_logo.jpg, id=4, 57.816pt x 65.3715pt>
 File: img/b_logo.jpg Graphic file (type jpg)
 <use img/b_logo.jpg>
-Package pdftex.def Info: img/b_logo.jpg  used on input line 64.
+Package pdftex.def Info: img/b_logo.jpg  used on input line 65.
 (pdftex.def)             Requested size: 75.06953pt x 84.88416pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 66.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 66.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (27.62856pt too wide) in paragraph at lines 63--73
+Overfull \hbox (27.62856pt too wide) in paragraph at lines 64--74
 $[]$ $[]$ 
  []
 
 
-Overfull \hbox (11.6656pt too wide) in paragraph at lines 74--78
+Overfull \hbox (11.6656pt too wide) in paragraph at lines 75--79
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--78
+Underfull \hbox (badness 10000) in paragraph at lines 75--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--78
+Underfull \hbox (badness 10000) in paragraph at lines 75--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--78
+Underfull \hbox (badness 10000) in paragraph at lines 75--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--78
+Underfull \hbox (badness 10000) in paragraph at lines 75--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--78
+Underfull \hbox (badness 10000) in paragraph at lines 75--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--78
+Underfull \hbox (badness 10000) in paragraph at lines 75--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--78
+Underfull \hbox (badness 10000) in paragraph at lines 75--79
 
  []
 
@@ -1156,25 +1156,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 87--92
 File: img/prod-cons-01.png Graphic file (type png)
 <use img/prod-cons-01.png>
 Package pdftex.def Info: img/prod-cons-01.png  used on input line 106.
-(pdftex.def)             Requested size: 111.4171pt x 491.43979pt.
-[1
-
-]
-Overfull \vbox (3.61366pt too high) has occurred while \output is active []
-
-
-[2 <./img/prod-cons-01.png>]
-<img/prod-cons-02.png, id=21, 215.80624pt x 821.0675pt>
+(pdftex.def)             Requested size: 102.13187pt x 450.48439pt.
+<img/prod-cons-02.png, id=14, 215.80624pt x 821.0675pt>
 File: img/prod-cons-02.png Graphic file (type png)
 <use img/prod-cons-02.png>
 Package pdftex.def Info: img/prod-cons-02.png  used on input line 113.
 (pdftex.def)             Requested size: 161.85428pt x 615.79912pt.
-<img/prod-cons-03.png, id=22, 202.7575pt x 822.07124pt>
+[1
+
+ <./img/prod-cons-01.png>]
+<img/prod-cons-03.png, id=19, 202.7575pt x 822.07124pt>
 File: img/prod-cons-03.png Graphic file (type png)
 <use img/prod-cons-03.png>
 Package pdftex.def Info: img/prod-cons-03.png  used on input line 120.
 (pdftex.def)             Requested size: 152.06775pt x 616.55191pt.
- [3 <./img/prod-cons-02.png>] [4 <./img/prod-cons-03.png>]
+ [2 <./img/prod-cons-02.png>] [3 <./img/prod-cons-03.png>]
 LaTeX Font Info:    Trying to load font information for T2A+cmss on input line 
 130.
  (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmss.fd
@@ -1185,21 +1181,17 @@ LaTeX Font Info:    Trying to load font information for TS1+cmss on input line
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [5] [6] [7] [8]
-[9]
+) [4] [5] [6] [7]
+[8]
 {\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 2.
-<img/read-write.png, id=49, 167.62625pt x 825.0825pt>
+<img/read-write.png, id=46, 167.62625pt x 825.0825pt>
 File: img/read-write.png Graphic file (type png)
 <use img/read-write.png>
 Package pdftex.def Info: img/read-write.png  used on input line 373.
-(pdftex.def)             Requested size: 100.5765pt x 495.05333pt.
-[10
+(pdftex.def)             Requested size: 92.1947pt x 453.79678pt.
+[9
 
-]
-Overfull \vbox (27.61055pt too high) has occurred while \output is active []
-
-
-[11 <./img/read-write.png>] [12] [13] [14] [15] (./report.bbl) [16]
+ <./img/read-write.png>] [10] [11] [12] [13] (./report.bbl) [14]
 (./report.aux) ) 
 Here is how much of TeX's memory you used:
  29514 strings out of 481820
@@ -1218,10 +1210,10 @@ ec/tcss1095.600pk> </home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t
 2a/labx1728.600pk> </home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t
 2a/larm1200.600pk> </home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t
 2a/labx1200.600pk>
-Output written on report.pdf (17 pages, 156966 bytes).
+Output written on report.pdf (15 pages, 156669 bytes).
 PDF statistics:
- 370 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
+ 364 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)
 

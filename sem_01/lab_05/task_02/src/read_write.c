@@ -1,20 +1,21 @@
 #include "read_write.h"
 
-struct sembuf READER_QUEUE[] = { 
+struct sembuf READER_LOCK[] = { 
     { READ_QUEUE, 1, 0 }, 
     { ACTIVE_WRITER, 0, 0 }, 
     { WRITE_QUEUE, 0, 0 },
-};
-
-struct sembuf READER_LOCK[] = { 
     { ACTIVE_READER, 1, 0 }, 
     { READ_QUEUE, -1, 0 }, 
 };
+
 struct sembuf READER_RELEASE[] = { 
     { ACTIVE_READER, -1, 0 }, 
 };
 
 struct sembuf WRITER_LOCK[] = {  
+    { WRITE_QUEUE, 1, 0 }, 
+    { ACTIVE_READER, 0, 0 }, 
+    { ACTIVE_WRITER, 0, 0 }, 
     { ACTIVE_WRITER, 1, 0 }, 
     { WRITE_QUEUE, -1, 0 },
 };
@@ -23,14 +24,8 @@ struct sembuf WRITER_RELEASE[] = {
     { ACTIVE_WRITER, -1, 0 }, 
 }; 
 
-struct sembuf WRITER_QUEUE[] = { 
-    { WRITE_QUEUE, 1, 0 }, 
-    { ACTIVE_READER, 0, 0 }, 
-    { ACTIVE_WRITER, 0, 0 }, 
-};
-
 int start_read(int sid) {
-    return semop(sid, READER_QUEUE, 3) != -1 && semop(sid, READER_LOCK, 2) != -1;
+    return semop(sid, READER_LOCK, 5) != -1;
 }
 
 int stop_read(int sid) {
@@ -38,7 +33,7 @@ int stop_read(int sid) {
 }
 
 int start_write(int sid) {
-    return semop(sid, WRITER_QUEUE, 3) != -1 && semop(sid, WRITER_LOCK, 2) != -1;
+    return semop(sid, WRITER_LOCK, 5) != -1;
 }
 
 int stop_write(int sid) {

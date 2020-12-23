@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.4)  22 DEC 2020 02:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.10.4)  23 DEC 2020 15:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1170,50 +1170,67 @@ File: img/prod-cons-03.png Graphic file (type png)
 <use img/prod-cons-03.png>
 Package pdftex.def Info: img/prod-cons-03.png  used on input line 120.
 (pdftex.def)             Requested size: 152.06775pt x 616.55191pt.
- [2 <./img/prod-cons-02.png>] [3 <./img/prod-cons-03.png>]
+ [2 <./img/prod-cons-02.png>]
+<img/prod-cons-04.png, id=23, 190.7125pt x 821.0675pt>
+File: img/prod-cons-04.png Graphic file (type png)
+<use img/prod-cons-04.png>
+Package pdftex.def Info: img/prod-cons-04.png  used on input line 127.
+(pdftex.def)             Requested size: 143.03401pt x 615.79912pt.
+ [3 <./img/prod-cons-03.png>]
+<img/prod-cons-05.png, id=27, 183.68625pt x 822.07124pt>
+File: img/prod-cons-05.png Graphic file (type png)
+<use img/prod-cons-05.png>
+Package pdftex.def Info: img/prod-cons-05.png  used on input line 134.
+(pdftex.def)             Requested size: 137.76433pt x 616.55191pt.
+ [4 <./img/prod-cons-04.png>]
+<img/prod-cons-06.png, id=31, 188.705pt x 818.05624pt>
+File: img/prod-cons-06.png Graphic file (type png)
+<use img/prod-cons-06.png>
+Package pdftex.def Info: img/prod-cons-06.png  used on input line 141.
+(pdftex.def)             Requested size: 141.5284pt x 613.54068pt.
+ [5 <./img/prod-cons-05.png>] [6 <./img/prod-cons-06.png>]
 LaTeX Font Info:    Trying to load font information for T2A+cmss on input line 
-130.
+152.
  (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmss.fd
 File: t2acmss.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
 LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
-133.
+155.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [4] [5] [6] [7]
-[8]
+) [7] [8] [9] [10]
+[11]
 {\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 2.
-<img/read-write.png, id=46, 167.62625pt x 825.0825pt>
+<img/read-write.png, id=58, 167.62625pt x 825.0825pt>
 File: img/read-write.png Graphic file (type png)
 <use img/read-write.png>
-Package pdftex.def Info: img/read-write.png  used on input line 373.
+Package pdftex.def Info: img/read-write.png  used on input line 395.
 (pdftex.def)             Requested size: 92.1947pt x 453.79678pt.
-[9
+[12
 
- <./img/read-write.png>] [10] [11] [12] [13] (./report.bbl) [14]
-(./report.aux) ) 
+ <./img/read-write.png>] [13] [14] [15] (./report.bbl) [16] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 29514 strings out of 481820
- 724329 string characters out of 5937972
- 1380624 words of memory out of 5000000
- 44824 multiletter control sequences out of 15000+600000
+ 29531 strings out of 481820
+ 724711 string characters out of 5937972
+ 1358625 words of memory out of 5000000
+ 44838 multiletter control sequences out of 15000+600000
  546267 words of font info for 54 fonts, out of 8000000 for 9000
  475 hyphenation exceptions out of 8191
  68i,7n,98p,727b,1710s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/
-ec/tcss1095.600pk> </home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t
-2a/lass1095.600pk> </home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t
-2a/lasx1095.600pk> </home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t
-2a/larm0600.600pk> </home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t
-2a/labx2488.600pk> </home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t
-2a/labx1728.600pk> </home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t
-2a/larm1200.600pk> </home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t
-2a/labx1200.600pk>
-Output written on report.pdf (15 pages, 156669 bytes).
+ </
+home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk> 
+</home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lass1095.600pk> 
+</home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lasx1095.600pk> 
+</home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm0600.600pk> 
+</home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx2488.600pk> 
+</home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1728.600pk> 
+</home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1200.600pk> 
+</home/alexey/.texlive2020/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1200.600pk>
+Output written on report.pdf (17 pages, 171987 bytes).
 PDF statistics:
- 364 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+ 373 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -122,6 +122,28 @@ escapeinside={\#*}{*)}   % если нужно добавить коммента
 	\label{fig:task01-03}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{img/prod-cons-04.png}
+	\caption{Демонстрация работы программы <<Производство-потребление>>. Задержка потребителя: от 1 до 15, задержка производителя: от 1 до 4}
+	\label{fig:task01-04}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{img/prod-cons-05.png}
+	\caption{Демонстрация работы программы <<Производство-потребление>>. Задержка потребителя: от 4 до 8, задержка производителя: от 1 до 4}
+	\label{fig:task01-05}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{img/prod-cons-06.png}
+	\caption{Демонстрация работы программы <<Производство-потребление>>. Задержка потребителя: от 8 до 12, задержка производителя: от 1 до 4}
+	\label{fig:task01-06}
+\end{figure}
+
+
 \section{Листинги кода}
 
 В листингах \ref{buffer} - \ref{main} представленны исходные коды решения задачи <<Производство-потребление>>.
@@ -382,13 +404,10 @@ int main() {
 \begin{lstlisting}[label=reader,caption=Реализация <<читателей>> и <<писателей>>,language=C]
 #include "read_write.h"
 
-struct sembuf READER_QUEUE[] = { 
+struct sembuf READER_LOCK[] = { 
 	{ READ_QUEUE, 1, 0 }, 
 	{ ACTIVE_WRITER, 0, 0 }, 
 	{ WRITE_QUEUE, 0, 0 },
-};
-
-struct sembuf READER_LOCK[] = { 
 	{ ACTIVE_READER, 1, 0 }, 
 	{ READ_QUEUE, -1, 0 }, 
 };
@@ -398,6 +417,9 @@ struct sembuf READER_RELEASE[] = {
 };
 
 struct sembuf WRITER_LOCK[] = {  
+	{ WRITE_QUEUE, 1, 0 }, 
+	{ ACTIVE_READER, 0, 0 }, 
+	{ ACTIVE_WRITER, 0, 0 }, 
 	{ ACTIVE_WRITER, 1, 0 }, 
 	{ WRITE_QUEUE, -1, 0 },
 };
@@ -406,14 +428,8 @@ struct sembuf WRITER_RELEASE[] = {
 	{ ACTIVE_WRITER, -1, 0 }, 
 }; 
 
-struct sembuf WRITER_QUEUE[] = { 
-	{ WRITE_QUEUE, 1, 0 }, 
-	{ ACTIVE_READER, 0, 0 }, 
-	{ ACTIVE_WRITER, 0, 0 }, 
-};
-
 int start_read(int sid) {
-	return semop(sid, READER_QUEUE, 3) != -1 && semop(sid, READER_LOCK, 2) != -1;
+	return semop(sid, READER_LOCK, 5) != -1;
 }
 
 int stop_read(int sid) {
@@ -421,7 +437,7 @@ int stop_read(int sid) {
 }
 
 int start_write(int sid) {
-	return semop(sid, WRITER_QUEUE, 3) != -1 && semop(sid, WRITER_LOCK, 2) != -1;
+	return semop(sid, WRITER_LOCK, 5) != -1;
 }
 
 int stop_write(int sid) {

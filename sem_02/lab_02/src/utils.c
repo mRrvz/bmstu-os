@@ -1,6 +1,7 @@
 #include "utils.h"
 
-int myfunc(const char *const filename, size_t offset) {
+int myfunc(const char *const filename, size_t offset)
+{
     fprintf(stdout, " ");
 
     for (size_t i = 0; i < offset; i++)

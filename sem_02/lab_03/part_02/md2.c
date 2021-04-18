@@ -10,6 +10,7 @@ static int __init md_init(void) {
     printk("Module md2 was loaded!\n");
     printk("Value exported from md1 : %s\n", md1_data);
     printk("Value returned md1_proc() is : %s\n", md1_proc());
+    //printk("Value from static md1_local() is: %s\n", md1_local());
 
     return 0;
 }

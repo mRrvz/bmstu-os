@@ -13,10 +13,87 @@ filenames = {
     "statm": "file",
 }
 
+stat = (
+    "pid",
+    "comm",
+    "state",
+    "ppid",
+    "pgrp",
+    "session",
+    "tty_nr",
+    "tpgid",
+    "flags",
+    "minflt",
+    "cminflt",
+    "majflt",
+    "cmajflt",
+    "utime",
+    "stime",
+    "cutime",
+    "cstime",
+    "priority",
+    "nice",
+    "num_threads",
+    "itrealvalue",
+    "starttime",
+    "vsize",
+    "rss",
+    "rsslim",
+    "startcode",
+    "endcode",
+    "startstack",
+    "kstkesp",
+    "kstkeip", # 30
+    "signal",
+    "blocked",
+    "sigignore",
+    "sigcatch",
+    "wchan",
+    "nswap",
+    "cnswap",
+    "exit_signal",
+    "processor",
+    "rt_priority",
+    "policy",
+    "delayacct_blkio_ticks",
+    "guest_time",
+    "cguest_time",
+    "start_data",
+    "end_data",
+    "start_brk",
+    "arg_start",
+    "arg_end",
+    "env_start",
+    "env_end",
+    "exit_code"
+)
+
+
+statm = (
+    "size",
+    "resident",
+    "shared",
+    "text",
+    "lib",
+    "data",
+    "dt"
+)
 
 def print_file(path):
     with open(os.path.join(path), "r") as f:
-        tmp = f.read()
+        if path.endswith("statm"):
+            raw = f.read()
+            tmp = ""
+            for i, line in enumerate(raw.split()):
+                tmp += f"{statm[i]}: {line}\n"
+        elif path.endswith("stat"):
+            raw = f.read()
+            tmp = ""
+            for i, line in enumerate(raw.split()):
+                tmp += f"{stat[i]}: {line}\n"
+        else:
+            tmp = f.read()
+
         print(tmp)
         return tmp
 
@@ -38,7 +115,8 @@ def print_fd(path):
 
 
 def main():
-    proc_path = os.path.join("/proc", sys.argv[1])
+    proc_pid = sys.argv[1] if len(sys.argv) > 1 else str(os.getpid())
+    proc_path = os.path.join("/proc", proc_pid)
     raw = ""
 
     for key in filenames:
@@ -56,7 +134,7 @@ def main():
 
         input()
 
-    with open(f"proc_{sys.argv[1]}", "w") as f:
+    with open(f"proc_{proc_pid}", "w") as f:
         f.write(raw)
 
 

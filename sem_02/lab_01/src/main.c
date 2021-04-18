@@ -32,8 +32,6 @@ sigset_t mask;
 
 void daemonize(const char* cmd)
 {
-    int i, fd0, fd1, fd2;
-    pid_t pid;
     struct rlimit rl;
     struct sigaction sa;
 
@@ -44,6 +42,7 @@ void daemonize(const char* cmd)
         printf("%s: can't get file limit", cmd);
     }
 
+    pid_t pid;
     if ((pid = fork()) < 0)
     {
         printf("%s: can't fork", cmd);
@@ -56,8 +55,8 @@ void daemonize(const char* cmd)
     setsid();
 
     sa.sa_handler = SIG_IGN;
-    sigemptyset(&sa.sa_mask); // empty mask set
-    sa.sa_flags = 0; // additional options about sigchld and etc.
+    sigemptyset(&sa.sa_mask); 
+    sa.sa_flags = 0; 
     if (sigaction(SIGHUP, &sa, NULL) < 0)
     {
         printf("%s: can't ignore SIGHUP", cmd);
@@ -73,14 +72,14 @@ void daemonize(const char* cmd)
         rl.rlim_max = 1024;
     }
 
-    for (i = 0; i < rl.rlim_max; i++)
+    for (int i = 0; i < rl.rlim_max; i++)
     {
         close(i);
     }
 
-    fd0 = open("/dev/null", O_RDWR);
-    fd1 = dup(0);
-    fd2 = dup(0);
+    int fd0 = open("/dev/null", O_RDWR);
+    int fd1 = dup(0);
+    int fd2 = dup(0);
 
     openlog(cmd, LOG_CONS, LOG_DAEMON);
 
@@ -93,10 +92,9 @@ void daemonize(const char* cmd)
 
 int already_running(void)
 {
-    int fd;
     char buf[16];
 
-    fd = open(LOCKFILE, O_RDWR | O_CREAT, LOCKMODE);
+    int fd = open(LOCKFILE, O_RDWR | O_CREAT, LOCKMODE);
     if (fd < 0)
     {
         syslog(LOG_ERR, "can't open %s: %s", LOCKFILE, strerror(errno));

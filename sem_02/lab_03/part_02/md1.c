@@ -12,8 +12,11 @@ extern char *md1_proc(void) { return md1_data; }
 
 extern char *md1_noexport(void) { return md1_data; }
 
+//static char *md1_local(void) { return md1_data; }
+
 EXPORT_SYMBOL(md1_data);
 EXPORT_SYMBOL(md1_proc);
+//EXPORT_SYMBOL(md1_local);
 
 static int __init md_init(void) {
     printk("Module md1 was unloaded\n");

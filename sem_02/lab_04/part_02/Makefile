@@ -1,7 +1,7 @@
 CURRENT = $(shell uname -r)
 KDIR = /lib/modules/$(CURRENT)/build
 PWD = $(shell pwd)
-TARGET = fortune
+TARGET = fortune_buffer
 obj-m := $(TARGET).o
 
 default:
@@ -12,6 +12,7 @@ clean:
 	@rm -f .*.*.cmd *~ *.*~ TODO.*
 	@rm -fR .tmp*
 	@rm -rf .tmp_versions
+	@rm *.ko *.mod
 
 disclean: clean
 	@rm *.ko *.symvers *.mod
@@ -27,3 +28,6 @@ info:
 
 logs:
 	dmesg
+
+update:
+	make clean && make remove && make && make load	

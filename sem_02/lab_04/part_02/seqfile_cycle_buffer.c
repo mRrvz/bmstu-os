@@ -8,7 +8,7 @@
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Alexey Romanov");
-MODULE_DESCRIPTION("Fortune Cookie Kernel Module");
+MODULE_DESCRIPTION("Sequence file Buffer Kernel Module");
 
 #define OK 0
 
@@ -17,19 +17,17 @@ MODULE_DESCRIPTION("Fortune Cookie Kernel Module");
 #define FORTUNE_SYMLINK "fortune_symlink"
 #define FORTUNE_PATH FORTUNE_DIRNAME "/" FORTUNE_FILENAME
 
-#define MAX_COOKIE_BUF_SIZE PAGE_SIZE
+#define MAX_BUF_SIZE PAGE_SIZE
 
 #define KERN_LOG_MSG() { printk(KERN_INFO "FORTUNE_MODULE: %s called.\n", __func__); }
 #define KERN_ERR_MSG(err) { printk(KERN_ERR "FORTUNE_MODULE: %s.\n", err); }
 #define KERN_INFO_MSG(msg) { printk(KERN_INFO "FORTUNE_MODULE: %s.\n", msg); }
 
 static struct proc_dir_entry *fortune_dir, *fortune_file, *fortune_symlink = NULL;
-static char *cookie_buffer = NULL;
+static char *buffer = NULL;
 
 static int read_index = 0;
 static int write_index = 0;
-
-char tmp_buffer[MAX_COOKIE_BUF_SIZE];
 
 static int fortune_show(struct seq_file *sfile, void *v)
 {
@@ -40,9 +38,9 @@ static int fortune_show(struct seq_file *sfile, void *v)
         read_index = 0;
     }
 
-    seq_printf(sfile, cookie_buffer + read_index);
+    seq_printf(sfile, buffer + read_index);
 
-    int len = strlen(cookie_buffer + read_index);
+    int len = strlen(buffer + read_index);
     if (len > 0)
     {
         read_index += len + 1;
@@ -67,20 +65,20 @@ static ssize_t fortune_write(struct file *file, const char __user *buf, size_t l
 {
     KERN_LOG_MSG();
 
-    if (len > MAX_COOKIE_BUF_SIZE - write_index + 1)
+    if (len > MAX_BUF_SIZE - write_index + 1)
     {
         KERN_ERR_MSG("Buffer overflow");
         return -ENOSPC;
     }
 
-    if (copy_from_user(&cookie_buffer[write_index], buf, len) != 0)
+    if (copy_from_user(&buffer[write_index], buf, len) != 0)
     {
         KERN_ERR_MSG("copy_from_user function get a error");
         return -EFAULT;
     }
 
     write_index += len;
-    cookie_buffer[write_index - 1] = '\0';
+    buffer[write_index - 1] = '\0';
 
     return len;
 }
@@ -112,14 +110,14 @@ static void cleanup_fortune(void)
         remove_proc_entry(FORTUNE_DIRNAME, NULL);
     }
 
-    vfree(cookie_buffer);
+    vfree(buffer);
 }
 
 static int __init fortune_init(void) 
 {
     KERN_LOG_MSG();
 
-    if ((cookie_buffer = vzalloc(MAX_COOKIE_BUF_SIZE)) == NULL)
+    if ((buffer = vzalloc(MAX_BUF_SIZE)) == NULL)
     {
         KERN_ERR_MSG("Allocate memory error.");
         return -ENOMEM;

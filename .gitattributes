@@ -1,3 +1,7 @@
 *.tex linguist-documentation
 */docs/* linguist-documentation
+
 */*/docs/* linguist-documentation
+
+sem_01/*/docs/report.tex linguist-documentation
+sem_01/*/docs/report.toc linguist-documentation

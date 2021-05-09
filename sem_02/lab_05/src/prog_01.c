@@ -25,12 +25,12 @@ int main(void)
     {
         char c;
 
-        if ((flag1 = fscanf(fs2, SPEC, &c)) == VALID_READED)
+        if ((flag1 = fscanf(fs1, SPEC, &c)) == VALID_READED)
         {
             fprintf(stdout, SPEC, c);
         }
 
-        if ((flag2 = fscanf(fs2, SPEC, &c) == VALID_READED)
+        if ((flag2 = fscanf(fs2, SPEC, &c)) == VALID_READED)
         {
             fprintf(stdout, SPEC, c);
         }

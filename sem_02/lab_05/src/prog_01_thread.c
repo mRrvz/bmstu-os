@@ -7,11 +7,11 @@
 #define VALID_READED 1
 
 #define FILE_NAME "data/alphabet.txt"
-#define SPEC "%c"
+#define SPEC "%c\n"
 
 void *run_buffer(void *args)
 {
-    fprintf(stdout, "\n============ IN RUN_BUFFER ==============");
+    // fprintf(stdout, "\n============ IN RUN_BUFFER ==============");
     int flag = 1;
     FILE *fs = (FILE *)args;
 
@@ -20,18 +20,19 @@ void *run_buffer(void *args)
         char c;
         if ((flag = fscanf(fs, SPEC, &c)) == VALID_READED)
         {
-            fprintf(stdout, "\nPRINT IN RUN_BUFFER: ");
-            fprintf(stdout, SPEC, c);
+            // fprintf(stdout, "\nPRINT IN RUN_BUFFER: ");
+            fprintf(stdout, "thread 2: " SPEC, c);
         }
     }
 
-    fprintf(stdout, "\n======== LEAVE RUN_BUFFER ==========");
+    // fprintf(stdout, "\n======== LEAVE RUN_BUFFER ==========");
     return NULL;
 }
 
 int main(void)
 {
     setbuf(stdout, NULL);
+
     pthread_t thread;
     int fd = open(FILE_NAME, O_RDONLY);
 
@@ -49,13 +50,13 @@ int main(void)
     while (flag == VALID_READED)
     {
         char c;
-        fprintf(stdout, "\nSCANF IN MAIN_1");
+        // fprintf(stdout, "\nSCANF IN MAIN_1");
         flag = fscanf(fs1, SPEC, &c);
-        fprintf(stdout, "\nSCANF IN MAIN_2");
-        if (flag == 1)
+        // fprintf(stdout, "\nSCANF IN MAIN_2");
+        if (flag == VALID_READED)
         {
-            fprintf(stdout, "\nPRINT IN MAIN: ");
-            fprintf(stdout, SPEC, c);
+            // fprintf(stdout, "\nPRINT IN MAIN: ");
+            fprintf(stdout, "thread 1: " SPEC, c);
         }
     }
 

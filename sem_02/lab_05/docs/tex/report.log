@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2021.3.14)  8 MAY 2021 18:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2021.3.14)  9 MAY 2021 18:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1177,39 +1177,148 @@ LaTeX Font Info:    Try loading font information for T2A+cmss on input line 104
 (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmss.fd
 File: t2acmss.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 119
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 107
 .
-LaTeX Font Info:    No file OMScmss.fd. on input line 119.
+LaTeX Font Info:    No file OMScmss.fd. on input line 107.
+
+
+LaTeX Font Warning: Font shape `OMS/cmss/m/it' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textasteriskcentered' on input line 107.
 
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textasteriskcentered' on input line 119.
+(Font)              for symbol `textasteriskcentered' on input line 110.
 
 [1
 
-] [2] [3]
+] [2]
 {\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 2.
-[4
+<img/prog_01_schema.jpg, id=25, 1617.04124pt x 699.61375pt>
+File: img/prog_01_schema.jpg Graphic file (type jpg)
+<use img/prog_01_schema.jpg>
+Package pdftex.def Info: img/prog_01_schema.jpg  used on input line 164.
+(pdftex.def)             Requested size: 533.62526pt x 230.87325pt.
 
-] [5]
+Overfull \hbox (33.14127pt too wide) in paragraph at lines 164--165
+ [][] 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 170.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 170.
+LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 170
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
+File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+) [3
+
+ <./img/prog_01_schema.jpg>]
+<img/prog_01.png, id=30, 601.24625pt x 37.13875pt>
+File: img/prog_01.png Graphic file (type png)
+<use img/prog_01.png>
+Package pdftex.def Info: img/prog_01.png  used on input line 231.
+(pdftex.def)             Requested size: 511.0617pt x 31.56808pt.
+
+Overfull \hbox (10.57771pt too wide) in paragraph at lines 231--232
+ [][] 
+ []
+
+[4] [5 <./img/prog_01.png>]
+<img/prog_01_thread.png, id=37, 651.43375pt x 460.72125pt>
+File: img/prog_01_thread.png Graphic file (type png)
+<use img/prog_01_thread.png>
+Package pdftex.def Info: img/prog_01_thread.png  used on input line 300.
+(pdftex.def)             Requested size: 390.86325pt x 276.43488pt.
+ [6 <./img/prog_01_thread.png>]
 {\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 3.
-[6
+<img/prog_02_schema.jpg, id=42, 1170.3725pt x 551.05875pt>
+File: img/prog_02_schema.jpg Graphic file (type jpg)
+<use img/prog_02_schema.jpg>
+Package pdftex.def Info: img/prog_02_schema.jpg  used on input line 311.
+(pdftex.def)             Requested size: 468.1407pt x 220.41959pt.
+[7
 
-] (./report.bbl) [7] (./report.aux)
+ <./img/prog_02_schema.jpg>]
+<img/prog_02.png, id=46, 596.2275pt x 35.13126pt>
+File: img/prog_02.png Graphic file (type png)
+<use img/prog_02.png>
+Package pdftex.def Info: img/prog_02.png  used on input line 359.
+(pdftex.def)             Requested size: 536.5998pt x 31.61781pt.
+
+Overfull \hbox (36.1158pt too wide) in paragraph at lines 359--360
+ [][] 
+ []
+
+[8 <./img/prog_02.png>]
+<img/prog_02_thread.png, id=50, 653.44125pt x 34.1275pt>
+File: img/prog_02_thread.png Graphic file (type png)
+<use img/prog_02_thread.png>
+Package pdftex.def Info: img/prog_02_thread.png  used on input line 421.
+(pdftex.def)             Requested size: 522.75371pt x 27.30202pt.
+
+Overfull \hbox (22.26971pt too wide) in paragraph at lines 421--422
+ [][] 
+ []
+
+[9 <./img/prog_02_thread.png>]
+{\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 4.
+<img/prog_03_schema.jpg, id=54, 1651.16875pt x 701.62125pt>
+File: img/prog_03_schema.jpg Graphic file (type jpg)
+<use img/prog_03_schema.jpg>
+Package pdftex.def Info: img/prog_03_schema.jpg  used on input line 432.
+(pdftex.def)             Requested size: 528.3848pt x 224.52338pt.
+
+Overfull \hbox (27.9008pt too wide) in paragraph at lines 432--433
+ [][] 
+ []
+
+[10
+
+ <./img/prog_03_schema.jpg>]
+<img/prog_03.png, id=58, 654.445pt x 51.19125pt>
+File: img/prog_03.png Graphic file (type png)
+<use img/prog_03.png>
+Package pdftex.def Info: img/prog_03.png  used on input line 486.
+(pdftex.def)             Requested size: 523.55672pt x 40.95305pt.
+
+Overfull \hbox (23.07272pt too wide) in paragraph at lines 486--487
+ [][] 
+ []
+
+[11 <./img/prog_03.png>]
+<img/prog_03_thread.png, id=62, 653.44125pt x 51.19125pt>
+File: img/prog_03_thread.png Graphic file (type png)
+<use img/prog_03_thread.png>
+Package pdftex.def Info: img/prog_03_thread.png  used on input line 537.
+(pdftex.def)             Requested size: 522.75371pt x 40.95305pt.
+
+Overfull \hbox (22.26971pt too wide) in paragraph at lines 537--538
+ [][] 
+ []
+
+(./report.bbl) [12 <./img/prog_03_thread.png>] (./report.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 28906 strings out of 494035
- 713047 string characters out of 6169000
- 1134750 words of memory out of 5000000
- 32060 multiletter control sequences out of 15000+600000
- 17481 words of font info for 44 fonts, out of 8000000 for 9000
+ 29101 strings out of 494035
+ 716699 string characters out of 6169000
+ 1170750 words of memory out of 5000000
+ 32238 multiletter control sequences out of 15000+600000
+ 19964 words of font info for 51 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 62i,6n,96p,727b,1761s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lass1095.600p
+ 62i,7n,96p,727b,1761s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/latt1200.600p
+k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lasi1095.600p
+k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lass1095.600p
 k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lasx1095.600p
 k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm0600.600p
 k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx2488.600p
@@ -1217,10 +1326,10 @@ k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1728.600p
 k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1200.600p
 k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1200.600p
 k></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on report.pdf (8 pages, 117684 bytes).
+Output written on report.pdf (13 pages, 458551 bytes).
 PDF statistics:
- 306 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 460 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -97,9 +97,88 @@
 			~г.
 		\end{center}
 	\end{titlepage}
-	
 
+
+\chapter{Структура \_IO\_FILE}
+
+\begin{lstlisting}[language=c, label=_io_file, caption=Листинг структуры \_IO\_FILE]
+struct _IO_FILE
+{
+	int _flags;    /* High-order word is _IO_MAGIC; rest is flags. */
+
+	/* The following pointers correspond to the C++ streambuf protocol. */
+	char *_IO_read_ptr;  /* Current read pointer */
+	char *_IO_read_end;  /* End of get area. */
+	char *_IO_read_base;  /* Start of putback+get area. */
+	char *_IO_write_base;  /* Start of put area. */
+	char *_IO_write_ptr;  /* Current put pointer. */
+	char *_IO_write_end;  /* End of put area. */
+	char *_IO_buf_base;  /* Start of reserve area. */
+	char *_IO_buf_end;  /* End of reserve area. */
+	
+	/* The following fields are used to support backing up and undo. */
+	char *_IO_save_base; /* Pointer to start of non-current get area. */
+	char *_IO_backup_base;  /* Pointer to first valid character of backup area */
+	char *_IO_save_end; /* Pointer to end of non-current get area. */
+	
+	struct _IO_marker *_markers;
+	
+	struct _IO_FILE *_chain;
+	
+	int _fileno;
+	int _flags2;
+	__off_t _old_offset; /* This used to be _offset but it's too small.  */
+	
+	/* 1+column number of pbase(); 0 is unknown. */
+	unsigned short _cur_column;
+	signed char _vtable_offset;
+	char _shortbuf[1];
+	
+	_IO_lock_t *_lock;
+	#ifdef _IO_USE_OLD_IO_FILE
+};
+
+struct _IO_FILE_complete
+{
+	struct _IO_FILE _file;
+	#endif
+	__off64_t _offset;
+	/* Wide character stream stuff.  */
+	struct _IO_codecvt *_codecvt;
+	struct _IO_wide_data *_wide_data;
+	struct _IO_FILE *_freeres_list;
+	void *_freeres_buf;
+	size_t __pad5;
+	int _mode;
+	/* Make sure we don't get into trouble again.  */
+	char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
+};
+\end{lstlisting}
+	
 \chapter{Первая программа}
+
+\textbf{На рис. \ref{fig:prog_01_schema} представлена схема структур, используемых в первой программе.}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.33]{img/prog_01_schema.jpg}
+	\caption{Схема структур программы №1}
+	\label{fig:prog_01_schema}
+\end{figure}
+
+\begin{itemize}
+	\item Функция \texttt{open()} создает новый файловый дескриптор файла (открытого только на чтение) "alphabet.txt", запись в системной таблице открыт файлов. Эта запись регистрирует смещение в файле и флаги состояния файла;
+	
+	\item функция \texttt{fdopen()} создает указатели на структуру \texttt{FILE}. Поле \texttt{\_fileno} содержит дескриптор, который вернула функция \texttt{fopen()};
+	
+	\item функция \texttt{setvbuf()} явно задает размер буффера в 20 байт и меняет тип буферизации (для \texttt{fs1} и \texttt{fs2}) на полную;
+	
+	\item при первом вызове функции \texttt{fscanf()} в цикле (для \texttt{fs1}), \texttt{buff1} будет заполнен полностью -- первыми 20 символами (буквами алфавита). \texttt{f\_pos} в структуре \texttt{struct\_file} открытого файла увеличится на 20;
+	
+	\item при втором вызове \texttt{fscanf()} в цикле (для \texttt{fs2}) буффер \texttt{buff2} будет заполнен оставшимися 6 символами (начиная с \texttt{f\_pos});
+	
+	\item в цикле поочередно выводятся символы из \texttt{buff1} и \texttt{buff2}.
+\end{itemize}
 
 \begin{lstlisting}[language=c, label=p1, caption=Программа №1]
 #include <stdio.h>
@@ -144,15 +223,23 @@ int main(void)
 }
 \end{lstlisting}
 
+""\newline
+\textbf{На рис. \ref{fig:prog_01} представлен результат работы первой программы.}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.85]{img/prog_01.png}
+	\caption{Результат работы первой программы}
+	\label{fig:prog_01}
+\end{figure}
+
 \begin{lstlisting}[language=c, label=p1thread, caption=Программа №1 (реализация с потоками)]
 #include <stdio.h>
 #include <fcntl.h>
 #include <pthread.h>
-
 #define OK 0
 #define BUF_SIZE 20
 #define VALID_READED 1
-
 #define FILE_NAME "data/alphabet.txt"
 #define SPEC "%c"
 
@@ -160,7 +247,6 @@ void *run_buffer(void *args)
 {
 	int flag = 1;
 	FILE *fs = (FILE *)args;
-	
 	while (flag == VALID_READED)
 	{
 		char c;
@@ -169,7 +255,6 @@ void *run_buffer(void *args)
 			fprintf(stdout, SPEC, c);
 		}
 	}
-	
 	return NULL;
 }
 
@@ -207,7 +292,32 @@ int main(void)
 }
 \end{lstlisting}
 
+""\newline
+\textbf{На рис. \ref{fig:prog_01_thread} представлен результат работы первой программы (с потоками).}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{img/prog_01_thread.png}
+	\caption{Результат работы первой программы (с потоками)}
+	\label{fig:prog_01_thread}
+\end{figure}
+
 \chapter{Вторая программа}
+
+\textbf{На рис. \ref{fig:prog_02_schema} представлена схема структур, используемых во второй программе.}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{img/prog_02_schema.jpg}
+	\caption{Схема структур программы №2}
+	\label{fig:prog_02_schema}
+\end{figure}
+
+\begin{itemize}
+	\item Функция \texttt{fdopen()} создает файловые дескрипторы, два раза для одного и того же файла, поэтому в программе существует две различные \texttt{struct file}, но ссылающиеся на один и тот же \texttt{struct inode};
+	\item из-за того что структуры разные, посимвольная печать просто дважды выведет содержимое файла в формате <<AAbbcc...>> (в случае однопоточной реализации); 
+	\item в случае многопоточной реализации, вывод второго потока начнется позже и символы перемешаются (см. рис. \ref{fig:prog_02_thread}).
+\end{itemize}
 
 \begin{lstlisting}[language=c, label=p2, caption=Программа №2]
 #include <fcntl.h>
@@ -222,27 +332,34 @@ int main(void)
 	int fd1 = open(FILE_NAME, O_RDONLY);
 	int fd2 = open(FILE_NAME, O_RDONLY);
 	int rc1, rc2 = VALID_READED;
-	
 	while (rc1 == VALID_READED || rc2 == VALID_READED)
 	{
 		char c;
-		
 		rc1 = read(fd1, &c, 1);
 		if (rc1 == VALID_READED)
 		{
 			write(1, &c, 1);
 		}
-		
+
 		rc2 = read(fd2, &c, 1);
 		if (rc2 == VALID_READED)
 		{
 			write(1, &c, 1);
 		}
 	}
-	
 	return OK;
 }
 \end{lstlisting}
+
+""\newline
+\textbf{На рис. \ref{fig:prog_02} представлен результат работы второй программы.}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.9]{img/prog_02.png}
+	\caption{Результат работы второй программы}
+	\label{fig:prog_02}
+\end{figure}
 
 \begin{lstlisting}[language=c, label=p2thread, caption=Программа №2 (реализация с потоками)]
 #include <stdio.h>
@@ -294,16 +411,46 @@ int main(void)
 	pthread_join(thread, NULL);
 	return OK;
 }
-
 \end{lstlisting}
+
+""\newline
+\textbf{На рис. \ref{fig:prog_02_thread} представлен результат работы второй программы (с потоками).}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{img/prog_02_thread.png}
+	\caption{Результат работы второй программы (с потоками)}
+	\label{fig:prog_02_thread}
+\end{figure}
 
 \chapter{Третья программа}
 
-\begin{lstlisting}[language=c, label=p3, caption=Программа №2]
+\textbf{На рис. \ref{fig:prog_03_schema} представлена схема структур, используемых в третьей программе.}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.32]{img/prog_03_schema.jpg}
+	\caption{Схема структур программы №2}
+	\label{fig:prog_03_schema}
+\end{figure}
+
+\begin{itemize}
+	\item Файл открывается на запись два раза, с помощью функции \texttt{fopen()};
+	\item функция \texttt{fprintf()} предоставляет буферизованный вывод - буфер создается без нашего вмешательства;
+	\item изначально информация пишется в буфер, а из буфера в файл если произошло одно из событий:
+		\subitem буффер полон;
+		\subitem вызвана функция \texttt{fclose()};
+		\subitem вызвана функция \texttt{fflush()};
+	\item в случае нашей программы, информация в файл запишется в результате вызова функция \texttt{fclose()};
+	\item из-за того \texttt{f\_pos} независимы для каждого дескриптора файла, запись в файл будет производится с самого начала;
+	\item таким образом, информация записаная при первом вызове \texttt{fclose()} будет потеряна в результате второго вызова \texttt{fclose()} (см. рис. \ref{fig:prog_03}).
+	\item в многопоточной реализации результат аналогичен - с помощью \texttt{pthread\_join} мы дожидаемся вызова \texttt{fclose()} для \texttt{f2} в отдельном потоке и далее вызываем \texttt{fclose()} для \texttt{f1}.
+\end{itemize}
+
+\begin{lstlisting}[language=c, label=p3, caption=Программа №3]
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
-
 #define OK 0
 #define FILE_NAME "data/out.txt"
 #define SPEC "%c"
@@ -327,17 +474,25 @@ int main()
 	
 	fclose(f2);
 	fclose(f1);
-	
 	return OK;
 }
 \end{lstlisting}
+
+""\newline
+\textbf{На рис. \ref{fig:prog_03} представлен результат работы третьей программы.}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{img/prog_03.png}
+	\caption{Результат работы третьей программы}
+	\label{fig:prog_03}
+\end{figure}
 
 \begin{lstlisting}[language=c, label=p3thread, caption=Программа №3 (реализация с потоками)]
 #include <stdio.h>
 #include <fcntl.h>
 #include <pthread.h>
 #include <unistd.h>
-
 #define OK 0
 #define FILE_NAME "data/out.txt"
 #define SPEC "%c"
@@ -370,10 +525,19 @@ int main()
 	
 	pthread_join(thread, NULL);
 	fclose(f1);
-	
 	return OK;
 }
 \end{lstlisting}
+
+""\newline
+\textbf{На рис. \ref{fig:prog_03_thread} представлен результат работы второй программы (с потоками).}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{img/prog_03_thread.png}
+	\caption{Результат работы третьей программы (с потоками)}
+	\label{fig:prog_03_thread}
+\end{figure}
 
 \bibliographystyle{utf8gost705u}  % стилевой файл для оформления по ГОСТу
 \bibliography{51-biblio}          % имя библиографической базы (bib-файла)

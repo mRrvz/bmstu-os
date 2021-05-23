@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2021.3.14)  23 MAY 2021 21:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2021.3.14)  23 MAY 2021 23:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1199,11 +1199,11 @@ LaTeX Font Warning: Font shape `OMS/cmss/m/it' undefined
 
 ] [2]
 {\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 2.
-<img/open.jpg, id=26, 994.71625pt x 1357.07pt>
+<img/open.jpg, id=26, 1021.8175pt x 1407.2575pt>
 File: img/open.jpg Graphic file (type jpg)
 <use img/open.jpg>
 Package pdftex.def Info: img/open.jpg  used on input line 156.
-(pdftex.def)             Requested size: 377.99611pt x 515.69197pt.
+(pdftex.def)             Requested size: 378.06656pt x 520.67712pt.
 LaTeX Font Info:    Font shape `T2A/cmtt/bx/n' in size <17.28> not available
 (Font)              Font shape `T2A/cmtt/m/n' tried instead on input line 160.
 <img/build_open_flags.jpg, id=27, 719.68875pt x 1290.8225pt>
@@ -1285,7 +1285,7 @@ k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1728.600p
 k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1200.600p
 k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1200.600p
 k></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on report.pdf (9 pages, 891418 bytes).
+Output written on report.pdf (9 pages, 901724 bytes).
 PDF statistics:
  368 PDF objects out of 1000 (max. 8388607)
  68 compressed objects within 1 object stream

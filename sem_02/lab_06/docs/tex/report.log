@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2021.3.14)  23 MAY 2021 23:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2021.3.14)  26 MAY 2021 17:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1228,24 +1228,24 @@ File: img/alloc_fd.jpg Graphic file (type jpg)
 <use img/alloc_fd.jpg>
 Package pdftex.def Info: img/alloc_fd.jpg  used on input line 182.
 (pdftex.def)             Requested size: 232.22102pt x 218.51964pt.
-<img/path_openat.jpg, id=37, 1001.7425pt x 1056.94875pt>
+<img/path_openat.jpg, id=37, 1022.82124pt x 1055.945pt>
 File: img/path_openat.jpg Graphic file (type jpg)
 <use img/path_openat.jpg>
 Package pdftex.def Info: img/path_openat.jpg  used on input line 191.
-(pdftex.def)             Requested size: 540.93289pt x 570.74382pt.
+(pdftex.def)             Requested size: 552.31525pt x 570.20181pt.
 
-Overfull \hbox (40.4489pt too wide) in paragraph at lines 191--194
+Overfull \hbox (51.83125pt too wide) in paragraph at lines 191--194
  [][] 
  []
 
 [5 <./img/getname_flags.jpg> <./img/alloc_fd.jpg>]
-<img/do_last.jpg, id=41, 1021.8175pt x 845.1575pt>
-File: img/do_last.jpg Graphic file (type jpg)
-<use img/do_last.jpg>
-Package pdftex.def Info: img/do_last.jpg  used on input line 200.
-(pdftex.def)             Requested size: 531.34816pt x 439.48444pt.
+<img/open_last_lookups.jpg, id=41, 1043.9pt x 845.1575pt>
+File: img/open_last_lookups.jpg Graphic file (type jpg)
+<use img/open_last_lookups.jpg>
+Package pdftex.def Info: img/open_last_lookups.jpg  used on input line 200.
+(pdftex.def)             Requested size: 542.83113pt x 439.48444pt.
 
-Overfull \hbox (30.86417pt too wide) in paragraph at lines 200--203
+Overfull \hbox (42.34714pt too wide) in paragraph at lines 200--203
  [][] 
  []
 
@@ -1260,7 +1260,7 @@ Overfull \hbox (42.7497pt too wide) in paragraph at lines 209--212
  [][] 
  []
 
-[7 <./img/do_last.jpg>] (./report.bbl) [8 <./img/lookup_open.jpg>]
+[7 <./img/open_last_lookups.jpg>] (./report.bbl) [8 <./img/lookup_open.jpg>]
 (./report.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1268,7 +1268,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
  ) 
 Here is how much of TeX's memory you used:
  28970 strings out of 494035
- 714848 string characters out of 6169000
+ 714898 string characters out of 6169000
  1103750 words of memory out of 5000000
  32107 multiletter control sequences out of 15000+600000
  22685 words of font info for 59 fonts, out of 8000000 for 9000
@@ -1285,7 +1285,7 @@ k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1728.600p
 k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1200.600p
 k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1200.600p
 k></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on report.pdf (9 pages, 901724 bytes).
+Output written on report.pdf (9 pages, 904796 bytes).
 PDF statistics:
  368 PDF objects out of 1000 (max. 8388607)
  68 compressed objects within 1 object stream

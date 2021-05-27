@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2021.3.14)  26 MAY 2021 17:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2021.3.14)  27 MAY 2021 13:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1260,17 +1260,28 @@ Overfull \hbox (42.7497pt too wide) in paragraph at lines 209--212
  [][] 
  []
 
-[7 <./img/open_last_lookups.jpg>] (./report.bbl) [8 <./img/lookup_open.jpg>]
+[7 <./img/open_last_lookups.jpg>]
+<img/nameidata.jpg, id=50, 566.115pt x 604.2575pt>
+File: img/nameidata.jpg Graphic file (type jpg)
+<use img/nameidata.jpg>
+Package pdftex.def Info: img/nameidata.jpg  used on input line 218.
+(pdftex.def)             Requested size: 509.4988pt x 543.82672pt.
+
+Overfull \hbox (9.0148pt too wide) in paragraph at lines 218--221
+ [][] 
+ []
+
+[8 <./img/lookup_open.jpg>] (./report.bbl) [9 <./img/nameidata.jpg>]
 (./report.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 28970 strings out of 494035
- 714898 string characters out of 6169000
+ 28976 strings out of 494035
+ 715013 string characters out of 6169000
  1103750 words of memory out of 5000000
- 32107 multiletter control sequences out of 15000+600000
+ 32112 multiletter control sequences out of 15000+600000
  22685 words of font info for 59 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  62i,7n,96p,727b,1702s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1285,10 +1296,10 @@ k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1728.600p
 k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1200.600p
 k> </home/alexey/.texlive2018/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1200.600p
 k></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on report.pdf (9 pages, 904796 bytes).
+Output written on report.pdf (10 pages, 958978 bytes).
 PDF statistics:
- 368 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
+ 374 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -81,7 +81,8 @@ int main(void)
     signal(SIGINT, sigint_handler);
     fprintf(stdout, "Server is listening.\nTo stop server press Ctrl + C.\n");
 
-	while (1) {
+	while (1)
+	{
 		fd_set readfds;
 		FD_ZERO(&readfds);
 		FD_SET(master_sd, &readfds);
